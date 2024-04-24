@@ -1,0 +1,48 @@
+---
+import Link from "@/components/link.astro";
+import type { LinkType } from "../shared";
+import BtnTheme from "@/components/btnTheme.astro";
+
+const params = Astro.url.pathname;
+console.log("params", params);
+
+const links: LinkType[] = [
+  {
+    name: "Home",
+    url: "/",
+  },
+  {
+    name: "About",
+    url: "/about",
+  },
+  {
+    name: "Porfolio",
+    url: "/porfolio",
+  },
+];
+---
+
+<header>
+  <nav>
+    {links.map((link) => <Link link={link} />)}
+    <BtnTheme />
+  </nav>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -0);
+    width: 80%;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+</style>

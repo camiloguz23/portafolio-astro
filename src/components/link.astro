@@ -1,0 +1,30 @@
+---
+import { type LinkType } from "@/shared/types";
+
+interface Props {
+  link: LinkType;
+}
+
+const { link } = Astro.props;
+const pathName = Astro.url.pathname;
+---
+
+<a href={link.url} class:list={[{ active: link.url === pathName }]}
+  >{link.name}</a
+>
+
+<style>
+  a {
+    padding: 4px 20px;
+    margin-right: 4px;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: var(--hover-interaction);
+    }
+
+    &.active {
+      background-color: var(--hover-interaction);
+    }
+  }
+</style>

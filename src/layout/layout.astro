@@ -1,5 +1,7 @@
 ---
+import Header from "@/section/header.astro";
 import "@fontsource-variable/onest";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -16,11 +18,15 @@ const { description, title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
+    <Header />
     <slot />
   </body>
+  
 </html>
+
 
 <style is:global>
   :root[data-theme="dark"] {
@@ -39,8 +45,8 @@ const { description, title } = Astro.props;
     --hover-interaction: light-dark(#adffac, #103d13);
     --Borders-separators: light-dark(#6dd86f, #1d6c24);
     --Borders-separators-shadow: light-dark(#cdced7, #46484f);
-    -color-solid-cards: light-dark(#226425, #00b920);
-    -text: light-dark(#1e1f24, #eeeef0);
+    --color-solid-cards: light-dark( #00b920,#226425);
+    --text: light-dark(#1e1f24, #eeeef0);
   }
 
   * {
@@ -60,5 +66,16 @@ const { description, title } = Astro.props;
     );
     height: 100dvh;
     width: 100dvw;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
   }
 </style>

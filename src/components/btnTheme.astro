@@ -1,0 +1,71 @@
+---
+import Theme from "../icons/theme.astro";
+---
+
+<button id="btnTheme" popovertarget="my-popover">
+  <Theme />
+  <div id="my-popover" class="hidden">
+    <p>Sistema</p>
+    <p>Claro</p>
+    <p>Oscuro</p>
+  </div>
+</button>
+<style>
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: relative;
+  }
+
+  #my-popover {
+    position: absolute;
+    bottom: -100px;
+    width: fit-content;
+    background-color: var(--color-solid-cards);
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &.hidden {
+      display: none;
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const btnTheme: HTMLButtonElement | null =
+    document.querySelector("#btnTheme");
+  const popover: HTMLDivElement | null = document.querySelector("#my-popover");
+  const htmlElement: HTMLElement = document.documentElement; // Get the <html> element
+
+  const theme: any = {
+    Sistema: "system",
+    Claro: "light",
+    Oscuro: "dark",
+  };
+  htmlElement.setAttribute(
+    "data-theme",
+    theme[localStorage.getItem("theme") || "system"]
+  );
+
+  btnTheme?.addEventListener("click", (data) => {
+    const text = data.target as HTMLParagraphElement;
+    if (text.innerText) {
+      htmlElement.setAttribute("data-theme", theme[text.innerText]);
+      localStorage.setItem("theme", text.innerText);
+    }
+    popover?.classList.toggle("active");
+  });
+</script>
