@@ -1,6 +1,6 @@
-#Portafolio de Jeyson Guzman
+# Portafolio de Jeyson Guzman
 
-##¡Bienvenido a mi portafolio!
+## ¡Bienvenido a mi portafolio!
 
 Con más de 2 años de experiencia, me apasiona desarrollar y mejorar sitios web. Especializado en el dinámico mundo de JavaScript y el ecosistema de React, convierto ideas en realidades digitales impresionantes. Me encargaré de que tu proyecto siga creciendo con creatividad y profesionalidad.
 
