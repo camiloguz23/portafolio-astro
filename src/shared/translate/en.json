@@ -1,0 +1,16 @@
+{
+    "hi": "Hello I'm,",
+    "rol": "Frontend Developer",
+    "description" : "With over 2 years of experience, I'm passionate about crafting and enhancing websites! Specializing in the dynamic realm of ",
+    "special": "JavaScript and React",
+    "description2": ", I turn ideas into stunning digital realities.",
+    "description3":"Let me drive your project forward with creativity and professionalism!",
+    "email": "Email",
+    "experience":"Experience",
+    "descriptionEnterprise":{
+        "kingdom":"As the leader of the frontend team, my main goal is to optimize and structure the code to ensure maximum quality on our website. I collaborate with my team to achieve project success, ensuring that every aspect of the frontend meets our expectations and those of the client. From implementing API queries to performance optimization, I strive to lead by example and experience, guiding the team towards excellence at every step of the development process.",
+        "devsavant": "I developed a plugin for Microsoft Teams and webinars, as well as an administrative dashboard. I implement designs across various projects using technologies such as React JS, Node JS, git, AWS, and Angular to enhance user experience on our website and attract talent to the company.",
+        "globant": "As a Data Scientist, I analyzed database data using Python, MySQL, MongoDB, PostgresDB, and pyShark. Subsequently, as a Front End Developer, I implemented knowledge on web pages using React JS. I contributed significant improvements to the user experience and key functionalities of our website.",
+        "devontic": "As a Frontend Developer, I have implemented changes in the folder structure and code of the project, as well as developed administrative dashboards. My focus is on improving the efficiency and functionality of the website, thereby contributing to a better user experience and smoother internal management in our current company."
+    }
+}

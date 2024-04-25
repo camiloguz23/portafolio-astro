@@ -1,0 +1,50 @@
+---
+import Enterprise from "@/icons/enterprise.astro";
+
+interface Props {
+  title: string;
+  date: string;
+  description: string;
+  currently: boolean;
+}
+
+const { title, date, description, currently } = Astro.props;
+---
+
+<li class="mb-10 ms-6">
+  <span
+    class="absolute flex items-center justify-center w-6 h-6 rounded-full -start-3 colorItem"
+  >
+    <Enterprise size={14} />
+  </span>
+  <h3 class="flex items-center mb-1 text-lg font-semibold gap-2">
+    {title}
+    {currently && <span class="latest">Latest</span>}
+  </h3>
+  <time class="block mb-2 text-sm font-normal leading-none text-gray-color"
+    >{date}</time
+  >
+  <p class="mb-4 text-base font-normal">
+    {description}
+  </p>
+</li>
+
+<style>
+  .latest {
+    background-color: var(--Borders-separators);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 10px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .colorItem {
+    background-color: var(--Borders-separators);
+  }
+
+  .text-gray-color {
+    color: var(--text-gray);
+  }
+</style>

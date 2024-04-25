@@ -1,0 +1,72 @@
+---
+import ItemExperience from "@/components/item-experience.astro";
+import Enterprise from "@/icons/enterprise.astro";
+import { translate } from "@/shared/translate";
+import { type ExperienceType } from "@/shared/types";
+
+const header = Astro.request.headers;
+const lang = header.get("accept-language")?.split(",")[0];
+const dictionary = translate(lang ?? "en");
+
+const experience: ExperienceType[] = [
+  {
+    title: "Devontic - Frontend Developer",
+    date: "octobre 2023 - present",
+    description: dictionary.descriptionEnterprise.devontic,
+    currently: true,
+  },
+  {
+    title: "Supremacy Kingdom - Leader Team Frontend Developer",
+    date: "marzo 2023 - octubre 2023",
+    description: dictionary.descriptionEnterprise.kingdom,
+    currently: false,
+  },
+  {
+    title: "Desavant - Frontend Developer ",
+    date: "enero 2022 - enero 2023",
+    description: dictionary.descriptionEnterprise.devsavant,
+    currently: false,
+  },
+  {
+    title: "Globant - fullstack Developer",
+    date: "julio 20221 - enero 2022",
+    description: dictionary.descriptionEnterprise.globant,
+    currently: false,
+  },
+];
+---
+
+<section>
+  <h3 data-tooltip="abc"><Enterprise /> {dictionary.experience}</h3>
+  <ol class="relative border-s border-gray-200 dark:border-gray-700">
+    {
+      experience.map((exp) => (
+        <ItemExperience
+          title={exp.title}
+          date={exp.date}
+          description={exp.description}
+          currently={exp.currently}
+        />
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-top: solid 1px var(--Borders-separators);
+    padding: 10px;
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+</style>

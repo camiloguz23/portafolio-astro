@@ -1,7 +1,118 @@
 ---
+import Badges from "@/components/badges.astro";
 import Layout from "../layout/layout.astro";
+import { translate } from "@/shared/translate";
+import Github from "@/icons/github.astro";
+import Linkedin from "@/icons/linkedin.astro";
+import Gmail from "@/icons/gmail.astro";
+import Experience from "@/section/experience.astro";
+import ImgUser from "@/components/imgUser.astro";
+import CvIcon from "@/icons/cvIcon.astro";
+
+const header = Astro.request.headers;
+const lang = header.get("accept-language")?.split(",")[0] ?? "es";
+const dictionary = translate(lang ?? "en");
+
+const socials = [
+  {
+    icons: Github,
+    name: "Github",
+    Link: "https://github.com/JeysonGuzman",
+  },
+  {
+    icons: Linkedin,
+    name: "Linkedin",
+    Link: "https://www.linkedin.com/in/jeyson-guzman/",
+  },
+  {
+    icons: Gmail,
+    name: dictionary.email,
+    Link: "mailto:jeysonkmguzman@gmail.com",
+  },
+];
 ---
 
-<Layout title="Welcome to Astro." description="">
-  <h1>Hello, World!</h1>
+<Layout
+  title="Portfolio de Jeyson Guzman - Desarrollador Frontend y programador Web con mas 2 años de experiencia"
+  description="Con más de 2 años de experiencia, soy un apasionado desarrollador web colombiano especializado en JavaScript y React. Transformo ideas en increíbles realidades digitales. ¡Déjame impulsar tu proyecto con creatividad y profesionalismo"
+>
+  <section>
+    <ImgUser />
+    <h1 class="title">
+      {dictionary.hi} Jeyson Guzman <Badges text={dictionary.rol} />
+    </h1>
+    <h2 class="description">
+      {dictionary.description}
+      <span>{dictionary.special}</span>
+      {dictionary.description2}
+      <span>{dictionary.description3}</span>
+    </h2>
+    <nav class="links">
+      {
+        socials.map((social) => (
+          <a href={social.Link} target="_blank" rel="noopener noreferrer">
+            <Badges text={social.name}>
+              <social.icons slot="icon" size={20} />
+            </Badges>
+          </a>
+        ))
+      }
+      <a
+        href={lang.includes("es")
+          ? "/documents/jeyson-guzman-cv.pdf"
+          : "/documents/jeyson-guzman-cv-en.pdf"}
+        target="_blank"
+        rel="noopener noreferrer"
+        download
+      >
+        <Badges text={"CV"}>
+          <CvIcon slot="icon" />
+        </Badges>
+      </a>
+    </nav>
+    <Experience />
+  </section>
 </Layout>
+
+<style>
+  section {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    .title {
+      font-size: 3rem;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .description {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-wrap: pretty;
+
+      span {
+        color: var(--text-secundary);
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    a {
+      transition: 0.5s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+</style>

@@ -64,6 +64,7 @@ import Theme from "../icons/theme.astro";
     const text = data.target as HTMLParagraphElement;
     if (text.innerText) {
       htmlElement.setAttribute("data-theme", theme[text.innerText]);
+      document.cookie = `theme=${theme[localStorage.getItem("theme") || "system"]}; path=/`;
       localStorage.setItem("theme", text.innerText);
     }
     popover?.classList.toggle("active");

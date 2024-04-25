@@ -1,6 +1,6 @@
 ---
 import Link from "@/components/link.astro";
-import type { LinkType } from "../shared";
+import type { LinkType } from "@/shared/types";
 import BtnTheme from "@/components/btnTheme.astro";
 
 const params = Astro.url.pathname;
@@ -11,18 +11,19 @@ const links: LinkType[] = [
     name: "Home",
     url: "/",
   },
-  {
-    name: "About",
-    url: "/about",
-  },
-  {
-    name: "Porfolio",
-    url: "/porfolio",
-  },
+  // {
+  //   name: "About",
+  //   url: "/about",
+  // },
+  // {
+  //   name: "Porfolio",
+  //   url: "/porfolio",
+  // },
 ];
 ---
 
 <header>
+  <img src="/JR.svg" alt="letras J y R" width="30" height="30" />
   <nav>
     {links.map((link) => <Link link={link} />)}
     <BtnTheme />
@@ -35,14 +36,27 @@ const links: LinkType[] = [
     top: 20px;
     left: 50%;
     transform: translate(-50%, -0);
-    width: 80%;
+    width: 60%;
     padding: 6px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+    border-radius: 10px;
+    z-index: 5;
   }
 
   nav {
     display: flex;
     align-items: center;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      background-color: var(--color-transparent);
+    }
   }
 </style>

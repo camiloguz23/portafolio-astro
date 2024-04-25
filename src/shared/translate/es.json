@@ -1,0 +1,16 @@
+{
+    "hi": "Hola soy,",
+    "rol": "Desarrollador Frontend",
+    "description": "¡Con más de 2 años de experiencia, me apasiona desarrollar y mejorar sitios web! Especializado en el dinámico mundo de ",
+    "special": "JavaScript y el ecosistema de React",
+    "description2": " , convierto ideas en realidades digitales impresionantes. ",
+    "description3": "¡Me encargare de que tu proyecto siga creciendo con creatividad y Profesionalidad!",
+    "email": "Correo",
+    "experience":"Experiencia",
+    "descriptionEnterprise":{
+        "kingdom":"Como líder del equipo frontend, me dedico a optimizar el código y mejorar la estructura de nuestra página web para que sea atractiva y funcional para los reclutadores. Trabajo en estrecha colaboración con mi equipo para asegurarme de que cada detalle del frontend esté diseñado para impresionar a los reclutadores y facilitarles la navegación por nuestro sitio. Desde la implementación de consultas a APIs hasta la optimización del rendimiento, mi objetivo es crear una experiencia excepcional que destaque nuestras capacidades técnicas y creativas, ayudando así a atraer el talento adecuado a nuestra empresa.",
+        "devsavant": "Desarrollé un plugin para Microsoft Teams y webinars, así como un panel administrativo. Implemento diseños en diversos proyectos utilizando tecnologías como React JS, Node JS, git, AWS y Angular para mejorar la experiencia del usuario en nuestra página web y atraer talento a la empresa",
+        "globant": "Como Data Scientist, analicé datos de bases de datos utilizando Python, MySQL, MongoDB, PostgresDB y pyShark. Posteriormente, como Front End Developer, implementé conocimientos en páginas web utilizando React JS. Contribuí con mejoras significativas en la experiencia del usuario y funcionalidades clave de nuestro sitio web.",
+        "devontic": "Como desarrollador Frontend, he implementado cambios en la estructura de carpetas y código en el proyecto, además de desarrollar paneles administrativos. Mi enfoque se centra en mejorar la eficiencia y funcionalidad del sitio web, contribuyendo así a una mejor experiencia para el usuario y a una gestión interna más fluida en nuestra empresa actual."
+    }
+}

@@ -1,5 +1,6 @@
 ---
 import Header from "@/section/header.astro";
+import Footer from "@/components/footer.astro";
 import "@fontsource-variable/onest";
 import { ViewTransitions } from "astro:transitions";
 
@@ -9,73 +10,76 @@ interface Props {
 }
 
 const { description, title } = Astro.props;
+const theme = Astro.cookies.get("theme");
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme={theme?.value || "system"}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
   </head>
   <body>
     <Header />
     <slot />
-  </body>
-  
+    <Footer />
+  </body><style is:global>
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+    }
+    :root[data-theme="light"] {
+      color-scheme: light;
+    }
+    :root[data-theme="system"] {
+      color-scheme: light dark;
+    }
+    :root {
+      --background-primary: light-dark(#fcfcfd, #111113);
+      --background-secundary: light-dark(#ceffcd, #152c15);
+      --background-linea: light-dark(#f1fdf1, #121b12);
+      --hover-interaction: light-dark(#adffac, #103d13);
+      --Borders-separators: light-dark(#6dd86f, #1d6c24);
+      --Borders-separators-shadow: light-dark(#cdced7, #46484f);
+      --color-transparent: light-dark(#42424446, #b0b1b43f);
+      --color-solid-cards: light-dark(#00b920, #226425);
+      --text: light-dark(#1e1f24, #eeeef0);
+      --text-secundary: light-dark(#020ca7, yellow);
+      --text-gray: light-dark(#62636c, #b2b3bd);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: var(--text);
+      font-family: "Onest Variable", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(
+        0deg,
+        var(--background-primary) 0%,
+        var(--background-linea) 70%,
+        var(--background-secundary) 90%
+      );
+      min-height: 100dvh;
+      width: 100%;
+      padding-top: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
 </html>
-
-
-<style is:global>
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-  }
-  :root[data-theme="light"] {
-    color-scheme: light;
-  }
-  :root[data-theme="system"] {
-    color-scheme: light dark;
-  }
-  :root {
-    --background-primary: light-dark(#fcfcfd, #111113);
-    --background-secundary: light-dark(#ceffcd, #152c15);
-    --background-linea: light-dark(#f1fdf1, #121b12);
-    --hover-interaction: light-dark(#adffac, #103d13);
-    --Borders-separators: light-dark(#6dd86f, #1d6c24);
-    --Borders-separators-shadow: light-dark(#cdced7, #46484f);
-    --color-solid-cards: light-dark( #00b920,#226425);
-    --text: light-dark(#1e1f24, #eeeef0);
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: var(--text);
-    font-family: "Onest Variable", sans-serif;
-  }
-
-  body {
-    background: linear-gradient(
-      0deg,
-      var(--background-primary) 0%,
-      var(--background-linea) 70%,
-      var(--background-secundary) 90%
-    );
-    height: 100dvh;
-    width: 100dvw;
-    padding-top: 80px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  a{
-    text-decoration: none;
-  }
-
-  button {
-    cursor: pointer;
-  }
-</style>
