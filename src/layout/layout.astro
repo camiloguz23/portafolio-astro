@@ -20,6 +20,15 @@ const theme = Astro.cookies.get("theme");
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content="Portfolio de Jeyson Guzman" />
+    <meta
+      property="og:description"
+      content="Desarrollador Frontend y programador Web con mas 2 años de experiencia."
+    />
+    <meta property="og:image" content="https://i.ibb.co/Np52f2V/JR.png" />
+    <meta property="og:url" content="https://www.jeysonguzman.online/" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/JR.svg" type="image/x-icon" />
     <title>{title}</title>
     <ViewTransitions />
   </head>
@@ -27,59 +36,60 @@ const theme = Astro.cookies.get("theme");
     <Header />
     <slot />
     <Footer />
-  </body><style is:global>
-    :root[data-theme="dark"] {
-      color-scheme: dark;
-    }
-    :root[data-theme="light"] {
-      color-scheme: light;
-    }
-    :root[data-theme="system"] {
-      color-scheme: light dark;
-    }
-    :root {
-      --background-primary: light-dark(#fcfcfd, #111113);
-      --background-secundary: light-dark(#ceffcd, #152c15);
-      --background-linea: light-dark(#f1fdf1, #121b12);
-      --hover-interaction: light-dark(#adffac, #103d13);
-      --Borders-separators: light-dark(#6dd86f, #1d6c24);
-      --Borders-separators-shadow: light-dark(#cdced7, #46484f);
-      --color-transparent: light-dark(#42424446, #b0b1b43f);
-      --color-solid-cards: light-dark(#00b920, #226425);
-      --text: light-dark(#1e1f24, #eeeef0);
-      --text-secundary: light-dark(#020ca7, yellow);
-      --text-gray: light-dark(#62636c, #b2b3bd);
-    }
+    <style is:global>
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+      }
+      :root[data-theme="light"] {
+        color-scheme: light;
+      }
+      :root[data-theme="system"] {
+        color-scheme: light dark;
+      }
+      :root {
+        --background-primary: light-dark(#fcfcfd, #111113);
+        --background-secundary: light-dark(#ceffcd, #152c15);
+        --background-linea: light-dark(#f1fdf1, #121b12);
+        --hover-interaction: light-dark(#adffac, #103d13);
+        --Borders-separators: light-dark(#6dd86f, #1d6c24);
+        --Borders-separators-shadow: light-dark(#cdced7, #46484f);
+        --color-transparent: light-dark(#42424446, #b0b1b43f);
+        --color-solid-cards: light-dark(#00b920, #226425);
+        --text: light-dark(#1e1f24, #eeeef0);
+        --text-secundary: light-dark(#020ca7, yellow);
+        --text-gray: light-dark(#62636c, #b2b3bd);
+      }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      color: var(--text);
-      font-family: "Onest Variable", sans-serif;
-    }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: var(--text);
+        font-family: "Onest Variable", sans-serif;
+      }
 
-    body {
-      background: linear-gradient(
-        0deg,
-        var(--background-primary) 0%,
-        var(--background-linea) 70%,
-        var(--background-secundary) 90%
-      );
-      min-height: 100dvh;
-      width: 100%;
-      padding-top: 120px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+      body {
+        background: linear-gradient(
+          0deg,
+          var(--background-primary) 0%,
+          var(--background-linea) 70%,
+          var(--background-secundary) 90%
+        );
+        min-height: 100dvh;
+        width: 100%;
+        padding-top: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-    a {
-      text-decoration: none;
-    }
+      a {
+        text-decoration: none;
+      }
 
-    button {
-      cursor: pointer;
-    }
-  </style>
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </body>
 </html>
